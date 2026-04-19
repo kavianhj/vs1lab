@@ -116,14 +116,16 @@ a {
 .main {
     display: flex;
     gap: 20px;
+    padding: 30px;
 }
 
 .main__tagging {
-    flex: 1; 
+    flex: 1;
+
 }
 
 .main__discovery {
-    flex: 3;
+    flex: 1;
 }
 
 /* ### TODO ### Styles for Tagging component */
@@ -140,22 +142,31 @@ a {
 .tagging fieldset {
     display: flex;
     flex-direction: column;
+    width: 93%;
     gap: 10px;    
     border: 2px solid var(--gray-color) ;
     padding: 15px;
 }
 
+.tagging label {
+    color: var(--gray-color-darker);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .tagging input {
     color: var(--gray-color-darker);
-    width: 100%;
+    width: 90%;
     padding: 8px;
     box-sizing: border-box; /* Damit das Padding die Box nicht sprengt */
 }
 
-.tagging label {
-    color: var(--gray-color-darker);
+.tagging button {
+    color: var(--black);
+    width: 90%;
+    padding: 8px;
     font-weight: bold;
-    margin-top: 10  px;
+    margin-top: 10px;  
 }
 
 /* ### TODO ### Styles for Discovery component */
@@ -172,9 +183,31 @@ a {
 .discovery fieldset {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 10px;    
     border: 2px solid var(--gray-color) ;
     padding: 15px;
+}
+
+.discovery label {
+    color: var(--gray-color-darker);
+    font-weight: bold;
+    margin-top: 10  px;
+}
+
+.discovery input {
+    color: var(--gray-color-darker);
+    width: 20%;
+    padding: 8px;
+    box-sizing: border-box; /* Damit das Padding die Box nicht sprengt */
+}
+
+.discovery button {
+    color: var(--black);
+    width: 20%;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 10px; 
 }
 
 .discovery__wrapper {
