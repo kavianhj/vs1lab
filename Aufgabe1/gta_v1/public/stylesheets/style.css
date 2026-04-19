@@ -24,8 +24,8 @@ html {
 /* Variables (example: see declaration for "a" below) */
 
 :root {
-  --link-color: #00B7FF;
-  --background-color: #efefef;
+  --link-color: #b38bff;
+  --background-color: #c5e2a8;
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
@@ -109,29 +109,149 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
+.header {
+  color: black;
+  background-color: #c5e2a8;
+  font-weight: bold;
+  padding: 15px;
+}
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Main Component */
+
+.main{
+  display:flex;
+
+}
 
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+h2{
+  padding: 10px;
+}
+
+.main__tagging{
+  flex :1;
+  
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+}
+
+fieldset input {
+  width: 180px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #333;
+}
+
+.main__tagging button {
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color:#ddd;
+}
+
+
 
 
 /* ### TODO ### Styles for Discovery component */
+.discovery__search fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.discovery__search input {
+  width: 180px;
+  margin-bottom: 8px;
+}
+
+.main__discovery{
+  flex :1;
+  margin: 10px;
+}
+
+.discovery__wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+.discovery__taglist{
+  flex:1;
+
+}
+
+.discovery__map{
+  flex:1;
+  width: 100%;
+  height: auto;
+  display: block;
+
+}
+
+.discovery__results li {
+  color: #b38bff;
+  background-color:#ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  list-style: none;
+  
+}
+
+
+.discovery__search button {
+  width: 100px;
+  padding: 10px;
+  background-color:#ddd; 
+  font-weight: bold;
+  border-radius: 5px;
+}
 
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Footer Component */
 
+.footer{
+  color: black;
+  background-color: #ddd;
+  padding: 15px;
+  
+}
 /* ... your code here ... */
 
 
 /* ### TODO ### Media Queries */
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+  .discovery__wrapper{
+    flex-direction: column;
+  }
+}
 
 /* ... your code here ... */
