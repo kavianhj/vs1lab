@@ -33,7 +33,7 @@ body {
 }
 
 a {
-  color: var(--link-color);
+  color: #b38bff;
 }
 
 /* ### TODO ### Styles for other HTML elements */
@@ -98,7 +98,7 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 .header {
-    background-color: var(--gray-color); 
+    background-color: #c5e2a8; 
     color: var(--black);
     padding: 32px 50px;
     display: flex;
@@ -170,6 +170,7 @@ a {
     padding: 8px;
     font-weight: bold;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 .tagging button:hover {
@@ -218,6 +219,7 @@ a {
     padding: 8px;
     font-weight: bold;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 .discovery button:hover {
@@ -236,8 +238,9 @@ a {
 }
 
 .discovery__results li {
+    border-radius: 5px;
     background-color: #dfdfdf;
-    color: #00B7FF;
+    color: #b38bff  ;
     font-size: 1rem; /* Vergrößert den Text (Standard ist meist 1rem) */
     font-weight: bold;
     border: 2px solid var(--gray-color) ;
@@ -263,6 +266,7 @@ a {
 .discovery__map img {
     width: 100%;    /* Das Bild füllt immer die ganze Breite seiner Spalte aus */
     height: auto;   /* Das Seitenverhältnis bleibt erhalten */
+    border-radius: 5px;
 }
 
 .discovery__map span {
@@ -271,7 +275,7 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 .footer {
-    background-color: var(--gray-color);
+    background-color: #c5e2a8;
     color: #000000;
     padding: 16px;
     text-align: center;
