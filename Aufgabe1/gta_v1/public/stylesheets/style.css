@@ -17,7 +17,7 @@ html {
   --link-color: #00B7FF;
   --background-color: #efefef;
   --border-color: #cdcdcd;
-  --gray-color: #bab5b5;
+  --gray-color: #b9b9b9;
   --gray-color-darker: #535151;
   --black: #000000;
 }
@@ -98,9 +98,9 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 .header {
-    background-color: var(--gray-color); /* Nutzt dein definiertes Grau */
+    background-color: var(--gray-color); 
     color: var(--black);
-    padding: 32px;
+    padding: 32px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -109,14 +109,15 @@ a {
 .header__image {
     width: 50px; /* Oder eine Größe, die dir gefällt */
     height: auto;
+    
 }
 
 /* ### TODO ### Styles for Main Component */
 
 .main {
     display: flex;
-    gap: 20px;
-    padding: 30px;
+    padding: 50px;
+    gap: 30px;
 }
 
 .main__tagging {
@@ -125,12 +126,12 @@ a {
 }
 
 .main__discovery {
-    flex: 1;
+    flex: 3;
 }
 
 /* ### TODO ### Styles for Tagging component */
 .tagging h2 {
-    padding: 15px;
+    margin-bottom: 20px;
 }
 
 .tagging legend {
@@ -142,7 +143,7 @@ a {
 .tagging fieldset {
     display: flex;
     flex-direction: column;
-    width: 93%;
+    width: 100%;
     gap: 10px;    
     border: 2px solid var(--gray-color) ;
     padding: 15px;
@@ -162,16 +163,22 @@ a {
 }
 
 .tagging button {
+    border: none;
     color: var(--black);
+    background-color: #c5c5c5;
     width: 90%;
     padding: 8px;
     font-weight: bold;
-    margin-top: 10px;  
+    margin-top: 10px;
+}
+
+.tagging button:hover {
+    background-color: #b9b9b9; 
 }
 
 /* ### TODO ### Styles for Discovery component */
 .discovery h2 {
-    padding: 15px;
+    margin-bottom: 20px;
 }
 
 .discovery legend {
@@ -192,7 +199,7 @@ a {
 .discovery label {
     color: var(--gray-color-darker);
     font-weight: bold;
-    margin-top: 10  px;
+    margin-top: 10px;
 }
 
 .discovery input {
@@ -202,17 +209,45 @@ a {
     box-sizing: border-box; /* Damit das Padding die Box nicht sprengt */
 }
 
+
 .discovery button {
+    border: none;
     color: var(--black);
+    background-color: #c5c5c5;
     width: 20%;
     padding: 8px;
     font-weight: bold;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
+
+.discovery button:hover {
+    background-color: #b9b9b9; 
+} 
 
 .discovery__wrapper {
     display: flex;  /* Macht den Wrapper zum "Mini-Regal" */
-    gap: 1px;      /* Abstand zwischen Liste und Karte */
+    margin-top: 30px;
+    gap: 30px;      /* Abstand zwischen Liste und Karte */
+}
+
+.discovery__results {
+    list-style: none; 
+    padding: 0;
+}
+
+.discovery__results li {
+    background-color: #dfdfdf;
+    color: #00B7FF;
+    font-size: 1rem; /* Vergrößert den Text (Standard ist meist 1rem) */
+    font-weight: bold;
+    border: 2px solid var(--gray-color) ;
+    padding: 22px;        /* Platz im Inneren der Box */
+    margin-bottom: 10px;  /* Abstand zwischen den einzelnen Boxen */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ein ganz leichter Schatten für Tiefe */
+}
+
+.discovery__results li:hover {
+    background-color: #cfcfcf; 
 }
 
 .discovery__taglist {
@@ -220,14 +255,20 @@ a {
 }
 
 .discovery__map {
+    display: flex;
+    flex-direction: column;
     flex: 1;        /* Die Karte nimmt auch einen Teil ein */
+}
+
+.discovery__map span {
+  margin-top: 5px;
 }
 
 /* ### TODO ### Styles for Footer Component */
 .footer {
     background-color: var(--gray-color);
     color: #000000;
-    padding: 2rem;
+    padding: 16px;
     text-align: center;
     margin-top: auto; /* Schiebt den Footer ganz nach unten, falls wenig Inhalt da ist */
 }
