@@ -260,6 +260,11 @@ a {
     flex: 1;        /* Die Karte nimmt auch einen Teil ein */
 }
 
+.discovery__map img {
+    width: 100%;    /* Das Bild füllt immer die ganze Breite seiner Spalte aus */
+    height: auto;   /* Das Seitenverhältnis bleibt erhalten */
+}
+
 .discovery__map span {
   margin-top: 5px;
 }
@@ -276,4 +281,16 @@ a {
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 760px) {
+    .main {
+        flex-direction: column; /* Stapelt Tagging und Discovery untereinander */
+    }
+
+    .discovery__wrapper {
+        flex-direction: column; /* Stapelt Liste und Karte untereinander */
+    }
+
+    .discovery input, .discovery button {
+        width: 100%; /* Auf dem Handy brauchen wir große Trefferflächen für die Finger */
+    }
+}
