@@ -1,13 +1,3 @@
-/*
-  File origin: VS1LAB A1b  
-
-  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
-  CSS variables used for clarity and themability (e.g. through SSR). 
-  Inherited box sizing used for ease of including 3rd party content-box components.
-*/
-
-/* Global styling */
-
 html {
   box-sizing: border-box;
 }
@@ -27,7 +17,9 @@ html {
   --link-color: #00B7FF;
   --background-color: #efefef;
   --border-color: #cdcdcd;
-  --gray-color: #666;
+  --gray-color: #b9b9b9;
+  --gray-color-darker: #535151;
+  --black: #000000;
 }
 
 
@@ -41,13 +33,10 @@ body {
 }
 
 a {
-  color: var(--link-color);
+  color: #b38bff;
 }
 
 /* ### TODO ### Styles for other HTML elements */
-
-/* ... your code here ... */
-
 
 /* Grid styles (no changes required) */
 
@@ -108,30 +97,204 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
+.header {
+    background-color: #c5e2a8; 
+    color: var(--black);
+    padding: 32px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-/* ... your code here ... */
-
+.header__image {
+    width: 50px; /* Oder eine Größe, die dir gefällt */
+    height: auto;
+    
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+    display: flex;
+    padding: 50px;
+    gap: 30px;
+}
 
+.main__tagging {
+    flex: 1;
+
+}
+
+.main__discovery {
+    flex: 3;
+}
 
 /* ### TODO ### Styles for Tagging component */
+.tagging h2 {
+    margin-bottom: 20px;
+}
 
-/* ... your code here ... */
+.tagging legend {
+    color: var(--black);
+    font-weight: bold;
+    margin-top: 10px;
+}
 
+.tagging fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;    
+    border: 2px solid var(--gray-color) ;
+    padding: 15px;
+}
+
+.tagging label {
+    color: var(--gray-color-darker);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.tagging input {
+    color: var(--gray-color-darker);
+    width: 90%;
+    padding: 8px;
+    box-sizing: border-box; /* Damit das Padding die Box nicht sprengt */
+}
+
+.tagging button {
+    border: none;
+    color: var(--black);
+    background-color: #c5c5c5;
+    width: 90%;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.tagging button:hover {
+    background-color: #b9b9b9; 
+}
 
 /* ### TODO ### Styles for Discovery component */
+.discovery h2 {
+    margin-bottom: 20px;
+}
 
-/* ... your code here ... */
+.discovery legend {
+    color: var(--black);
+    font-weight: bold;
+    margin-top: 10px;
+}
 
+.discovery fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;    
+    border: 2px solid var(--gray-color) ;
+    padding: 15px;
+}
+
+.discovery label {
+    color: var(--gray-color-darker);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.discovery input {
+    color: var(--gray-color-darker);
+    width: 20%;
+    padding: 8px;
+    box-sizing: border-box; /* Damit das Padding die Box nicht sprengt */
+}
+
+
+.discovery button {
+    border: none;
+    color: var(--black);
+    background-color: #c5c5c5;
+    width: 20%;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.discovery button:hover {
+    background-color: #b9b9b9; 
+} 
+
+.discovery__wrapper {
+    display: flex;  /* Macht den Wrapper zum "Mini-Regal" */
+    margin-top: 30px;
+    gap: 30px;      /* Abstand zwischen Liste und Karte */
+}
+
+.discovery__results {
+    list-style: none; 
+    padding: 0;
+}
+
+.discovery__results li {
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    color: #b38bff  ;
+    font-size: 1rem; /* Vergrößert den Text (Standard ist meist 1rem) */
+    font-weight: bold;
+    border: 2px solid var(--gray-color) ;
+    padding: 22px;        /* Platz im Inneren der Box */
+    margin-bottom: 10px;  /* Abstand zwischen den einzelnen Boxen */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ein ganz leichter Schatten für Tiefe */
+}
+
+.discovery__results li:hover {
+    background-color: #cfcfcf; 
+}
+
+.discovery__taglist {
+    flex: 1;        /* Die Liste nimmt einen Teil ein */
+}
+
+.discovery__map {
+    display: flex;
+    flex-direction: column;
+    flex: 1;        /* Die Karte nimmt auch einen Teil ein */
+}
+
+.discovery__map img {
+    width: 100%;    /* Das Bild füllt immer die ganze Breite seiner Spalte aus */
+    height: auto;   /* Das Seitenverhältnis bleibt erhalten */
+    border-radius: 5px;
+}
+
+.discovery__map span {
+  margin-top: 5px;
+}
 
 /* ### TODO ### Styles for Footer Component */
-
-/* ... your code here ... */
+.footer {
+    background-color: #c5e2a8;
+    color: #000000;
+    padding: 16px;
+    text-align: center;
+    margin-top: auto; /* Schiebt den Footer ganz nach unten, falls wenig Inhalt da ist */
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 760px) {
+    .main {
+        flex-direction: column; /* Stapelt Tagging und Discovery untereinander */
+    }
+
+    .discovery__wrapper {
+        flex-direction: column; /* Stapelt Liste und Karte untereinander */
+    }
+
+    .discovery input, .discovery button {
+        width: 100%; /* Auf dem Handy brauchen wir große Trefferflächen für die Finger */
+    }
+}
