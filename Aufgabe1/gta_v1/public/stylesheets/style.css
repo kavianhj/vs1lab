@@ -290,6 +290,10 @@ a {
         flex-direction: column; /* Stapelt Tagging und Discovery untereinander */
     }
 
+    .tagging{
+        width: 100%;
+
+    }
     .discovery__wrapper {
         flex-direction: column; /* Stapelt Liste und Karte untereinander */
     }

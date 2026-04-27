@@ -21,8 +21,8 @@
         </nav>
     </header>   
 
-    <main class="main">
-        <section class="main__tagging tagging">
+    <main class="row main">
+        <section class="col-3 main__tagging tagging">
             <h2>Tagging</h2>
             
             <form id="tag-form" action="/tagging" method="post">
@@ -39,7 +39,7 @@
                     <input type="text" id="name" name="name" maxlength="10" placeholder="e.g Hochschule Karlsruhe" required>
                     
                     <label for="hash">Hashtag:</label>
-                    <input type="text" id="hash" name="hashtag" maxlength="11" pattern="#.*" placeholder="e.g #hka">
+                    <input type="text" id="hash" name="hashtag" maxlength="11" pattern="(#[A-Za-z]{1,10})" placeholder="e.g #hka">
 
                     <button type="submit">Add Tag</button>
                 </fieldset>
@@ -55,7 +55,7 @@
                     <legend> Search </legend>
                     
                     <label for="sea">Search term or keywords:</label>
-                    <input type="text" id="sea" name="Search" placeholder="e.g. Karlsruhe">
+                    <input type="text" id="sea" name="Search" placeholder="e.g. Karlsruhe" required>
                     
                     <button type="submit">Search</button>
                 </fieldset>
