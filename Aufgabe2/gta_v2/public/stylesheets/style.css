@@ -257,6 +257,10 @@ a {
     flex: 1;        /* Die Liste nimmt einen Teil ein */
 }
 
+#map { 
+   height: 500px;
+ }
+
 .discovery__map {
     display: flex;
     flex-direction: column;
