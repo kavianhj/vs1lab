@@ -159,8 +159,7 @@ function updateLocation(){
 
     let img = document.querySelector("img");
     let p = document.querySelector("p");
-    img.remove();
-    p.remove();
+    
         
     });
     
