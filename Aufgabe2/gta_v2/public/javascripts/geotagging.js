@@ -62,12 +62,7 @@ class LocationHelper {
        this.#longitude = (parseFloat(longitude)).toFixed(5);
    }
 
-    /**
-     * The 'findLocation' method requests the current location details through the geolocation API.
-     * It is a static method that should be used to obtain an instance of LocationHelper.
-     * Throws an exception if the geolocation API is not available.
-     * @param {*} callback a function that will be called with a LocationHelper instance as parameter, that has the current location details
-     */
+    
     static findLocation(callback) {
         const geoLocationApi = GEOLOCATION_API;
 
@@ -75,14 +70,10 @@ class LocationHelper {
             throw new Error("The GeoLocation API is unavailable.");
         }
 
-        // Call to the HTML5 geolocation API.
-        // Takes a first callback function as argument that is called in case of success.
-        // Second callback is optional for handling errors.
-        // These callbacks are given as arrow function expressions.
         geoLocationApi.getCurrentPosition((location) => {
-            // Create and initialize LocationHelper object.
+            
             let helper = new LocationHelper(location.coords.latitude, location.coords.longitude);
-            // Pass the locationHelper object to the callback.
+            
             callback(helper);
         }, (error) => {
            alert(error.message)
@@ -134,6 +125,7 @@ class MapManager {
     }
 }
 
+const mapManager = new MapManager();
 /**
  * TODO: 'updateLocation'
  * 
@@ -142,28 +134,37 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // 
-function updateLocation(){
+function updateLocation() {
     LocationHelper.findLocation((helper) => {
-
-        console.log("Latitude:", helper.latitude);
-        console.log("Longitude:", helper.longitude);
-
-        let latInput = document.getElementById("lat");
-        let lonInput = document.getElementById("lon");
-        latInput.value = helper.latitude;
-        lonInput.value = helper.longitude;
-    
-    let mapManager = new MapManager();
-    mapManager.initMap(helper.latitude, helper.longitude);
-    mapManager.updateMarkers(helper.latitude, helper.longitude);
-
-    let img = document.querySelector("img");
-    let p = document.querySelector("p");
-    
         
+        // 1. Tagging-Formular ausfüllen
+        const tagLatField = document.getElementById('lat');
+        const tagLonField = document.getElementById('lon');
+
+        if(tagLatField) tagLatField.value = helper.latitude;
+        if(tagLonField) tagLonField.value = helper.longitude; 
+
+        // 2. Discovery-Formular ausfüllen
+        const discoveryForm = document.getElementById('discoveryFilterForm');
+        if(discoveryForm) {
+            const disLatField = discoveryForm.querySelector('input[name="latitude"]');
+            const disLonField = discoveryForm.querySelector('input[name="longitude"]'); 
+        
+            if (disLatField) disLatField.value = helper.latitude;
+            if (disLonField) disLonField.value = helper.longitude;
+        }
+
+        // 3. Platzhalter löschen (Bild und Beschriftung)
+        const placeholderImg = document.getElementById('mapView');
+        if (placeholderImg) placeholderImg.remove();
+
+        const placeholderText = document.querySelector('#map span'); 
+        if (placeholderText) placeholderText.remove();
+
+        // 4. Karte initialisieren
+        mapManager.initMap(helper.latitude, helper.longitude);
+        mapManager.updateMarkers(helper.latitude, helper.longitude);
     });
-    
-    
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
