@@ -65,7 +65,7 @@ function updateLocation() {
             const mapDiv = document.getElementById('map');
             const tags = JSON.parse(mapDiv.dataset.tags);
             mapManager.updateMarkers(latitude, longitude, tags);
-          console.log(tags);
+        
         }else {
 
             LocationHelper.findLocation((helper) => {
