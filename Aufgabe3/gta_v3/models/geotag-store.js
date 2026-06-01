@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
-
+   
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples");
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -25,8 +27,42 @@
  */
 class InMemoryGeoTagStore{
 
+    #geotags = [];
     // TODO: ... your code here ...
-
+constructor() {
+    this.#geotags = GeoTagExamples.tagList.map(
+        ([name, latitude, longitude, hashtag]) =>
+            new GeoTag(latitude, longitude, name, hashtag)
+        
+    );
 }
+     
+    addGeoTag(geoTag){
+        this.#geotags.push(geoTag);
+    }
+
+    removeGeoTag(name){
+        this.#geotags = this.#geotags.filter((geoTag)=> geoTag.name !== name );
+    }
+
+    getNearbyGeoTags(location, radius) {
+    return this.#geotags.filter(geoTag => {
+        let dx = geoTag.latitude - location.latitude;
+        let dy = geoTag.longitude - location.longitude;
+
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        return distance <= radius;
+    });
+    }
+
+    searchNearbyGeoTags(location,radius,keyword){
+        return this.getNearbyGeoTags(location,radius).filter(geotag => geotag.name.includes(keyword) || (geotag.hashtag && geotag.hashtag.includes(keyword)));
+
+    }
+    
+}
+
+
 
 module.exports = InMemoryGeoTagStore
