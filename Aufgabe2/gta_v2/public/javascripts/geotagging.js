@@ -23,7 +23,7 @@ var GEOLOCATION_API = {
                 "heading": null,
                 "speed": null
             },
-            "timestamp tmm": 1775140116396
+            "timestamp": 1775140116396
         });
     }
 };
