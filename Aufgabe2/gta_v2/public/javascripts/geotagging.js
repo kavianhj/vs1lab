@@ -23,7 +23,7 @@ var GEOLOCATION_API = {
                 "heading": null,
                 "speed": null
             },
-            "timestamp tmm": 1775140116396
+            "timestamp": 1775140116396
         });
     }
 };
@@ -128,11 +128,12 @@ class MapManager {
 const mapManager = new MapManager();
 /**
  * TODO: 'updateLocation'
+ * 
+ * 
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
-
+// 
 function updateLocation() {
     LocationHelper.findLocation((helper) => {
         
