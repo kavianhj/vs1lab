@@ -1,15 +1,10 @@
 // File origin: VS1LAB A3
 
-/**
- * This script is a template for exercise VS1lab/Aufgabe3
- * Complete all TODOs in the code documentation.
- */
+// Wir holen uns die Schablone für ein GeoTag-Objekt
+const GeoTag = require('./geotag');
 
 /**
  * A class representing example geoTags at HKA
- * 
- * TODO: populate your InMemoryGeoTagStore with these tags
- * 
  */
 class GeoTagExamples {
     /**
@@ -29,6 +24,17 @@ class GeoTagExamples {
             ['Building B', 49.016843, 8.391372, '#campus'],
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
+    }
+
+    /**
+     * Befüllt einen übergebenen Store automatisch mit den Beispieldaten
+     */
+    static populate(store) {
+        GeoTagExamples.tagList.forEach(tagData => {
+            // tagData[0] = Name, tagData[1] = Lat, tagData[2] = Lon, tagData[3] = Hashtag
+            const geoTag = new GeoTag(tagData[1], tagData[2], tagData[0], tagData[3]);
+            store.addGeoTag(geoTag);
+        });
     }
 }
 

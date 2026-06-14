@@ -25,7 +25,38 @@
  */
 class InMemoryGeoTagStore{
 
-    // TODO: ... your code here ...
+    constructor() {
+        // Die zentrale Liste, in der alle GeoTags landen
+        this.geotags = [];
+    }
+
+    /**
+     * Fügt einen neuen GeoTag der Liste hinzu
+     */
+    addGeoTag(geotag) {
+        this.geotags.push(geotag);
+    }
+
+    /**
+     * Gibt alle gespeicherten GeoTags zurück
+     */
+    getAllGeoTags() {
+        return this.geotags;
+    }
+
+    /**
+     * Sucht nach GeoTags, die ein bestimmtes Suchwort im Namen oder Hashtag haben
+     */
+    search(keyword) {
+        if (!keyword) {
+            return this.geotags;
+        }
+        const lowerKeyword = keyword.toLowerCase();
+        return this.geotags.filter(tag => 
+            tag.name.toLowerCase().includes(lowerKeyword) || 
+            tag.hashtag.toLowerCase().includes(lowerKeyword)
+        );
+    }
 
 }
 
