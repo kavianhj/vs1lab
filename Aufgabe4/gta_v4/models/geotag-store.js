@@ -21,29 +21,30 @@ class InMemoryGeoTagStore {
     }
 
     addGeoTag(geoTag) {
-        geoTag.id = this.#nextId
-        this.#nextId++;
-        this.#geotags.push(geoTag);
+        geoTag.id = this.#nextId // Eine ID bekommen
+        this.#nextId++; // Id Zähler erhöhen
+        this.#geotags.push(geoTag); // Ganz hinten zu den Orten hinzufügen
     }
 
     removeGeoTagById(id) {
         this.#geotags = this.#geotags.filter(geoTag => geoTag.id !== parseInt(id));
     }
 
-    getGeoTagById(id) {
+    getGeoTagById(id) { // Nach dem Ort mit einem bestimmten ID suchen und alle Daten dazu ausspucken
         return this.#geotags.find(geoTag => geoTag.id === parseInt(id));
     }
 
-    getNearbyGeoTags(location, radius) {
-        return this.#geotags.filter(geoTag => {
-            let dx = geoTag.latitude - location.latitude;
-            let dy = geoTag.longitude - location.longitude;
+        getNearbyGeoTags(location, radius) {
+            return this.#geotags.filter(geoTag => {  // Alle gespeicherte Orte werden gefiltert
+                // Luftabstand berechenn
+                let dx = geoTag.latitude - location.latitude;
+                let dy = geoTag.longitude - location.longitude;
 
-            let distance = Math.sqrt(dx * dx + dy * dy);
+                let distance = Math.sqrt(dx * dx + dy * dy); // Satz des Pythagoras
 
-            return distance <= radius;
-        });
-    }
+                return distance <= radius; // Zurückgeben wenn kleiner als geforderten Radius
+            });
+        }
 
     searchNearbyGeoTags(location, radius, keyword) {
         return this.getNearbyGeoTags(location, radius).filter(geotag => geotag.name.includes(keyword) || (geotag.hashtag && geotag.hashtag.includes(keyword)));
@@ -54,6 +55,7 @@ class InMemoryGeoTagStore {
         // 1. Wir nutzen unser vorhandenes Suchgerät, um den passenden Tag zu finden
         const tag = this.getGeoTagById(id);
 
+        // Wir überscheiben die Daten like a Boss
         if (tag) {
             tag.name = name;
             tag.latitude = parseFloat(latitude);   

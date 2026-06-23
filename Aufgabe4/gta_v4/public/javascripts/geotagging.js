@@ -50,6 +50,7 @@ function updateLocation() {
 
     const tagLatField = document.getElementById('lat');
     const tagLonField = document.getElementById('lon');
+    
     if (tagLatField.value && tagLonField.value) {
 
         const latitude = parseFloat(tagLatField.value);
@@ -61,13 +62,15 @@ function updateLocation() {
         const tags = JSON.parse(mapDiv.dataset.tags);
         mapManager.updateMarkers(latitude, longitude, tags);
 
+        // NEU: Sofort die Suche abfeuern, damit die Liste beim Start geladen wird!
+        document.getElementById('discoveryFilterForm').dispatchEvent(new Event('submit'));
+
     } else {
 
         LocationHelper.findLocation((helper) => {
 
             if (tagLatField) tagLatField.value = helper.latitude;
             if (tagLonField) tagLonField.value = helper.longitude;
-
 
             const discoveryForm = document.getElementById('discoveryFilterForm');
 
@@ -92,6 +95,8 @@ function updateLocation() {
             const tags = JSON.parse(mapDiv.dataset.tags);
             mapManager.updateMarkers(helper.latitude, helper.longitude, tags);
 
+            // NEU: Auch hier sofort die Suche abfeuern, nachdem der neue Standort da ist!
+            document.getElementById('discoveryFilterForm').dispatchEvent(new Event('submit'));
 
         });
     }

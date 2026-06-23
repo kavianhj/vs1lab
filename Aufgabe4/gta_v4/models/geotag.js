@@ -1,6 +1,6 @@
 
 class GeoTag {
-
+    // Einen neuen Ort erschaffen
     constructor(latitude, longitude, name, hashtag, id) {
         this.id = id;
         this.latitude = latitude;
